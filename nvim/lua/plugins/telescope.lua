@@ -4,10 +4,9 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-lua/popup.nvim",
-		"sharkdp/fd",
+		-- "sharkdp/fd",
 		"ibhagwan/fzf-lua",
 		"nvim-treesitter/nvim-treesitter",
-		"jvgrootveld/telescope-zoxide",
 		"crispgm/telescope-heading.nvim",
 		{
 			"RutaTang/quicknote.nvim",
@@ -79,7 +78,6 @@ return {
 		},
 	},
 	config = function()
-		local z_utils = require("telescope._extensions.zoxide.utils")
 		local builtin = require("telescope.builtin")
 		local actions = require("telescope.actions")
 		local telescope = require("telescope")
@@ -161,34 +159,6 @@ return {
 							layout_strategy = "horizontal",
 						},
 					},
-					zoxide = {
-						prompt_title = "[ Walking on the shoulders of TJ ]",
-						mappings = {
-							default = {
-								after_action = function(selection)
-									print("Update to (" .. selection.z_score .. ") " .. selection.path)
-								end,
-							},
-							["<C-s>"] = {
-								before_action = function(selection)
-									print("before C-s")
-								end,
-								action = function(selection)
-									vim.cmd.edit(selection.path)
-								end,
-							},
-							-- Opens the selected entry in a new split
-							["<C-q>"] = { action = z_utils.create_basic_command("split") },
-						},
-					},
-					aerial = {
-						-- Display symbols as <root>.<parent>.<symbol>
-						show_nesting = {
-							["_"] = false, -- This key will be the default
-							json = true, -- You can set the option for specific filetypes
-							yaml = true,
-						},
-					},
 					import = {
 						-- Add imports to the top of the file keeping the cursor in place
 						insert_at_top = true,
@@ -211,9 +181,8 @@ return {
 		vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 		vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
+		vim.keymap.set("n", "<space>fz", "<cmd>FzfLua<Cr>", { noremap = true })
 
-		telescope.load_extension("aerial")
-		telescope.load_extension("zoxide")
 		telescope.load_extension("heading")
 		telescope.load_extension("quicknote")
 		telescope.load_extension("lazygit")

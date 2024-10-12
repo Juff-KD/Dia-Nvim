@@ -2,7 +2,7 @@ return {
 	{ require("config.alpha") },
 	-- { "folke/neodev.nvim", enabled = false }, -- make sure to uninstall or disable neodev.nvim
 
-	{ "zootedb0t/citruszest.nvim", lazy = false, priority = 1000 },
+	{ "Everblush/nvim", name = "everblush", lazy = false, priority = 1000 },
 	{ "Mofiqul/vscode.nvim", lazy = false, priority = 1000 },
 	{ "scottmckendry/cyberdream.nvim", lazy = false, priority = 1000 },
 	{ "olivercederborg/poimandres.nvim", lazy = false, priority = 1000 },
@@ -34,12 +34,14 @@ return {
 		end,
 	},
 	{
-		"norcalli/nvim-colorizer.lua",
+		"NvChad/nvim-colorizer.lua",
 		lazy = false,
 		config = function()
-			require("colorizer").setup({ "*" })
+			require("colorizer").setup({
+				filetypes = { "*" },
+				buftypes = {},
+			})
 		end,
-		enabled = true,
 	},
 	{
 		"uga-rosa/ccc.nvim",
@@ -80,6 +82,7 @@ return {
 			vim.keymap.set({ "n" }, "KK", require("ts-node-action").node_action, { desc = "Trigger Node Action" })
 		end,
 	},
+	{ "dsznajder/vscode-es7-javascript-react-snippets", run = "yarn install --frozen-lockfile && yarn compile" },
 	{
 		"kosayoda/nvim-lightbulb",
 		lazy = false,
@@ -149,26 +152,5 @@ return {
 	{
 		"pluffie/neoproj",
 		cmd = { "ProjectOpen", "ProjectNew" },
-	},
-	{
-		"bgaillard/readonly.nvim",
-		dependencies = {
-			"rcarriga/nvim-notify",
-		},
-		opts = {
-			-- see https://neovim.io/doc/user/lua.html#vim.fs.normalize()
-			secured_files = {
-				"~/%.aws/config",
-				"~/%.aws/credentials",
-				"~/%.ssh/.",
-				"~/%.secrets.yaml",
-				"~/%.vault-crypt-files/.",
-			},
-		},
-		lazy = false,
-	},
-	{
-		"Makaze/watch.nvim",
-		cmd = { "WatchStart", "WatchStop", "WatchFile" },
 	},
 }

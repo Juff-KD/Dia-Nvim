@@ -24,8 +24,31 @@ return {
 		vim.keymap.set("v", "<space>y", function()
 			require("toggleterm").send_lines_to_terminal("single_line", trim_spaces, { args = vim.v.count })
 		end)
+		vim.keymap.set("v", "<space>Y", function()
+			require("toggleterm").send_lines_to_terminal("visual_lines", trim_spaces, { args = vim.v.count })
+		end)
 		-- Replace with these for the other two options
-		-- require("toggleterm").send_lines_to_terminal("visual_lines", trim_spaces, { args = vim.v.count })
 		-- require("toggleterm").send_lines_to_terminal("visual_selection", trim_spaces, { args = vim.v.count })
+	end,
+	config = function()
+		require("toggleterm").setup({
+			size = function(term)
+				if term.direction == "horizontal" then
+					return 13
+				elseif term.direction == "vertical" then
+					return vim.o.columns * 0.4
+				end
+			end,
+			shell = vim.o.shell,
+			auto_scroll = true,
+			persist_size = true,
+			persist_mode = true,
+			winbar = {
+				enabled = false,
+				name_formatter = function(term) --  term: Terminal
+					return term.name
+				end,
+			},
+		})
 	end,
 }

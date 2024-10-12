@@ -2,23 +2,29 @@ if vim.fn.has("termguicolors") then
 	vim.opt.termguicolors = true
 end
 
-local ok_status, cit = pcall(require, "citruszest")
-if not ok_status then
-	return
-end
+require("everblush").setup({
 
-cit.setup({
-	option = {
-		transparent = true, -- Enable/Disable transparency
-		italic = true,
-		bold = true,
+	-- Default options
+	override = {},
+	transparent_background = false,
+	nvim_tree = {
+		contrast = false,
 	},
-	-- Override default highlight style in this table
-	-- E.g If you want to override `Constant` highlight style
-	style = {
-		-- This will change Constant foreground color and make it bold.
-		Constant = { fg = "#FF1A75", bold = true },
-	},
+
+	-- Configuration examples
+
+	-- Override the default highlights using Everblush or other colors
+	-- override = {
+	--     Normal = { fg = '#ffffff', bg = 'comment' },
+	-- },
+	--
+	-- Set transparent background
+	-- transparent_background = true,
+
+	-- Set contrast for nvim-tree highlights
+	-- nvim_tree = {
+	--     contrast = true,
+	-- },
 })
 
 local c = require("vscode.colors").get_colors()
@@ -148,5 +154,5 @@ require("bamboo").setup({
 })
 -- Default options
 
-vim.cmd([[colorscheme vscode]])
+vim.cmd([[colorscheme poimandres]])
 --zellner(white),wildcharm(black),sorbet,retrobox

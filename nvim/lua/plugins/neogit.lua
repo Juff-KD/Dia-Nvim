@@ -9,4 +9,5 @@ return {
 		--"ibhagwan/fzf-lua",              -- optional
 	},
 	config = true,
+	vim.keymap.set("n", "<leader>gg", "<cmd>Neogit<cr>", { desc = "Neogit" }),
 }

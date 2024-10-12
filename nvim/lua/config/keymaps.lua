@@ -24,7 +24,7 @@ map("i", "jk", "<Esc>")
 map("n", "tn", "<CMD>tabnew<cr>")
 map("n", "cc", "<CMD>close<cr>")
 map("n", "sp", ":split<Return><C-w>w")
-map("n", "sv", ":vsplit<Return><C-w>w")
+map("n", "vs", ":vsplit<Return><C-w>w")
 
 -- Copy to system clipboard
 map("v", "<C-c>", '"+y')

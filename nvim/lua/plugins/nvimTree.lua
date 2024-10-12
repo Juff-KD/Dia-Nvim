@@ -97,13 +97,13 @@ return {
 					glyphs = {
 						default = "",
 						git = {
-							unstaged = "✗",
+							unstaged = "◌",
 							staged = "✓",
 							unmerged = "",
 							renamed = "➜",
 							untracked = "?",
 							deleted = "",
-							ignored = "◌",
+							ignored = "✗",
 						},
 					},
 				},
@@ -152,6 +152,6 @@ return {
 		-- title_format = " %s ",
 		--	})
 
-		vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { noremap = true })
+		vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { noremap = true, silent = true })
 	end,
 }

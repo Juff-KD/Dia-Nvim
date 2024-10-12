@@ -42,6 +42,7 @@ return {
 		"saadparwaiz1/cmp_luasnip",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-cmdline",
+		"hrsh7th/cmp-emoji",
 		"L3MON4D3/LuaSnip",
 		"rafamadriz/friendly-snippets",
 		"neovim/nvim-lspconfig",
@@ -132,7 +133,7 @@ return {
 
 		require("mason").setup({})
 		require("mason-lspconfig").setup({
-			ensure_installed = { "lua_ls", "tsserver" },
+			ensure_installed = { "lua_ls", "ts_ls" },
 			handlers = {
 				lsp_zero.default_setup,
 				function(server_name)
@@ -231,6 +232,7 @@ return {
 			sources = {
 				{ name = "nvim_lsp" },
 				{ name = "path" },
+				{ name = "emoji" },
 			},
 			{
 				{ name = "buffer" },
