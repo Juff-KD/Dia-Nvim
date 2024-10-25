@@ -2,6 +2,25 @@ if vim.fn.has("termguicolors") then
 	vim.opt.termguicolors = true
 end
 
+local ok_status, cit = pcall(require, "citruszest")
+if not ok_status then
+	return
+end
+
+cit.setup({
+	option = {
+		transparent = true, -- Enable/Disable transparency
+		italic = true,
+		bold = true,
+	},
+	-- Override default highlight style in this table
+	-- E.g If you want to override `Constant` highlight style
+	style = {
+		-- This will change Constant foreground color and make it bold.
+		Constant = { fg = "#Fe8091", bold = true },
+	},
+})
+
 require("everblush").setup({
 
 	-- Default options
@@ -53,46 +72,6 @@ require("vscode").setup({
 		-- this supports the same val table as vim.api.nvim_set_hl
 		-- use colors from this colorscheme by requiring vscode.colors!
 		Cursor = { fg = c.vscDarkBlue, bg = c.vscLightGreen, bold = true },
-	},
-})
-
-local colors = require("cyberdream.colors")
-local t = colors.default
-require("cyberdream").setup({
-	-- Enable transparent background
-	transparent = true, -- Default: false
-
-	-- Enable italics comments
-	italic_comments = true, -- Default: false
-
-	-- Replace all fillchars with ' ' for the ultimate clean look
-	hide_fillchars = true, -- Default: false
-
-	-- Modern borderless telescope theme
-	borderless_telescope = true, -- Default: true
-
-	theme = { -- Default: nil
-		highlights = {
-			-- Highlight groups to override, adding new groups is also possible
-			-- See `:help highlight-groups` for a list of highlight groups
-			CursorLine = { bg = t.bgHighlight },
-			ColorColumn = { bg = t.bg },
-			-- FoldColumn = { fg = t.grey, bg = t.bgHighlight },
-			-- Example:
-			Comment = { fg = "#696969", bg = "NONE" },
-			WinSeparator = { fg = "NONE", bg = t.bgHighlight },
-			-- Complete list can be found in `lua/cyberdream/theme.lua`
-		},
-
-		-- Override a color entirely
-		colors = {
-			-- For a list of colors see `lua/cyberdream/colours.lua`
-			-- Example:
-			bg = "#000000",
-			green = "#00ff00",
-			orange = "#ff6a10",
-			magenta = "#ff00ff",
-		},
 	},
 })
 
@@ -153,6 +132,7 @@ require("bamboo").setup({
 	},
 })
 -- Default options
+-- For using default config leave this empty.
 
-vim.cmd([[colorscheme poimandres]])
+vim.cmd([[colorscheme bamboo]])
 --zellner(white),wildcharm(black),sorbet,retrobox

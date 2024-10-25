@@ -2,9 +2,17 @@ return {
 	{ require("config.alpha") },
 	-- { "folke/neodev.nvim", enabled = false }, -- make sure to uninstall or disable neodev.nvim
 
+	{
+		"zootedb0t/citruszest.nvim",
+		lazy = false,
+		priority = 1000,
+		dependencies = {
+			"sunjon/shade.nvim",
+			enabled = false,
+		},
+	},
 	{ "Everblush/nvim", name = "everblush", lazy = false, priority = 1000 },
 	{ "Mofiqul/vscode.nvim", lazy = false, priority = 1000 },
-	{ "scottmckendry/cyberdream.nvim", lazy = false, priority = 1000 },
 	{ "olivercederborg/poimandres.nvim", lazy = false, priority = 1000 },
 	{ "ribru17/bamboo.nvim", lazy = false, priority = 1000 },
 
@@ -35,7 +43,7 @@ return {
 	},
 	{
 		"NvChad/nvim-colorizer.lua",
-		lazy = false,
+		lazy = true,
 		config = function()
 			require("colorizer").setup({
 				filetypes = { "*" },
@@ -104,7 +112,7 @@ return {
 	{
 		"karb94/neoscroll.nvim",
 		event = "BufRead",
-		lazy = false,
+		-- lazy = false,
 		enabled = true,
 	},
 	{
@@ -127,7 +135,7 @@ return {
 	{
 		"joshuadanpeterson/typewriter",
 		event = "BufEnter",
-		lazy = false,
+		-- lazy = false,
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 		},
@@ -152,5 +160,37 @@ return {
 	{
 		"pluffie/neoproj",
 		cmd = { "ProjectOpen", "ProjectNew" },
+	},
+	{
+		"HiPhish/rainbow-delimiters.nvim",
+		config = function()
+			-- This module contains a number of default definitions
+			local rainbow_delimiters = require("rainbow-delimiters")
+
+			---@type rainbow_delimiters.config
+			vim.g.rainbow_delimiters = {
+				strategy = {
+					[""] = rainbow_delimiters.strategy["global"],
+					vim = rainbow_delimiters.strategy["local"],
+				},
+				query = {
+					[""] = "rainbow-delimiters",
+					lua = "rainbow-blocks",
+				},
+				priority = {
+					[""] = 110,
+					lua = 210,
+				},
+				highlight = {
+					"RainbowDelimiterRed",
+					"RainbowDelimiterYellow",
+					"RainbowDelimiterBlue",
+					"RainbowDelimiterOrange",
+					"RainbowDelimiterGreen",
+					"RainbowDelimiterViolet",
+					"RainbowDelimiterCyan",
+				},
+			}
+		end,
 	},
 }
