@@ -21,7 +21,7 @@ return {
 		custom_key_maps = {
 			{
 				"n",
-				"<Leader>|",
+				"<Space>|",
 				function()
 					require("multiple-cursors").align()
 				end,

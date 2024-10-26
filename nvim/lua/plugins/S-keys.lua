@@ -24,5 +24,5 @@ return {
 			},
 		})
 	end,
-	keys = { { "<leader>ko", "<cmd>Screenkey<cr>", desc = "Screenkey" } },
+	keys = { { "<Space>ko", "<cmd>Screenkey<cr>", desc = "Screenkey" } },
 }

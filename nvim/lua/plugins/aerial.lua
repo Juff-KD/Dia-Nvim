@@ -1,7 +1,15 @@
 return {
 	"stevearc/aerial.nvim",
-	opts = {},
-	config = function()
+	lazy = false,
+	dependencies = {
+		"nvim-treesitter/nvim-treesitter",
+		"nvim-tree/nvim-web-devicons",
+		{
+			"stevearc/stickybuf.nvim",
+			opts = {},
+		},
+	},
+	opts = function()
 		require("aerial").setup({
 			layout = {
 				max_width = { 40, 0.4 },
@@ -14,6 +22,7 @@ return {
 			},
 			highlight_on_hover = true,
 			autojump = true,
+			-- open_automatic = true,
 			highlight_on_jump = false,
 			manage_folds = true,
 			show_guides = true,
@@ -25,15 +34,7 @@ return {
 			end,
 		})
 		-- You probably also want to set a keymap to toggle aerial
-		vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
+		vim.keymap.set("n", "<Space>a", "<cmd>AerialToggle!<CR>")
 	end,
 	-- Optional dependencies
-	dependencies = {
-		"nvim-treesitter/nvim-treesitter",
-		"nvim-tree/nvim-web-devicons",
-		{
-			"stevearc/stickybuf.nvim",
-			opts = {},
-		},
-	},
 }

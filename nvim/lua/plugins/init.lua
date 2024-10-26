@@ -1,6 +1,15 @@
 return {
 	{ require("config.alpha") },
 	-- { "folke/neodev.nvim", enabled = false }, -- make sure to uninstall or disable neodev.nvim
+	{
+		"dstein64/vim-startuptime",
+		-- lazy-load on a command
+		cmd = "StartupTime",
+		-- init is called during startup. Configuration for vim plugins typically should be set in an init function
+		init = function()
+			vim.g.startuptime_tries = 10
+		end,
+	},
 
 	{
 		"zootedb0t/citruszest.nvim",
@@ -93,11 +102,22 @@ return {
 	{ "dsznajder/vscode-es7-javascript-react-snippets", run = "yarn install --frozen-lockfile && yarn compile" },
 	{
 		"kosayoda/nvim-lightbulb",
-		lazy = false,
 		config = function()
-			require("nvim-lightbulb").setup({
-				autocmd = { enabled = true },
-			})
+			vim.cmd([[ autocmd CursorHold,CursorHoldI * lua LightBulbFunction() ]])
+			LightBulbFunction = function()
+				require("nvim-lightbulb").update_lightbulb({
+					sign = {
+						enabled = true,
+						-- Priority of the gutter sign
+						priority = 10,
+					},
+					float = {
+						enabled = true,
+						-- Text to show in the popup float
+						text = "💡",
+					},
+				})
+			end
 		end,
 	},
 	{

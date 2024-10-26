@@ -8,7 +8,15 @@ return {
 		-- OPTIONAL:
 		--   `nvim-notify` is only needed, if you want to use the notification view.
 		--   If not available, we use `mini` as the fallback
-		{ "rcarriga/nvim-notify", enabled = true },
+		{
+			"rcarriga/nvim-notify",
+			enabled = true,
+			config = function()
+				require("notify").setup({
+					background_colour = "#262626",
+				})
+			end,
+		},
 	},
 	config = function()
 		require("noice").setup({

@@ -16,7 +16,17 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+require("lazy").setup({
+	defaults = {
+		lazy = true,
+		event = "VeryLazy",
+	},
+	spec = {
+		{ import = "plugins" },
+	},
+	checker = { enabled = true },
+})
+
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
-

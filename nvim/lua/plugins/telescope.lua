@@ -7,6 +7,12 @@ return {
 		-- "sharkdp/fd",
 		"ibhagwan/fzf-lua",
 		"nvim-treesitter/nvim-treesitter",
+		{
+			"polirritmico/telescope-lazy-plugins.nvim",
+			keys = {
+				{ "<Space>tp", "<Cmd>Telescope lazy_plugins<CR>", desc = "Telescope: Plugins configurations" },
+			},
+		},
 		"crispgm/telescope-heading.nvim",
 		{
 			"RutaTang/quicknote.nvim",
@@ -159,6 +165,9 @@ return {
 							layout_strategy = "horizontal",
 						},
 					},
+					lazy_plugins = {
+						lazy_config = vim.fn.stdpath("config") .. "/lua/lazy/init.lua", -- Must be a valid path to the file containing the lazy spec and setup() call.
+					},
 					import = {
 						-- Add imports to the top of the file keeping the cursor in place
 						insert_at_top = true,
@@ -177,7 +186,7 @@ return {
 				},
 			},
 		})
-		vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
+		vim.keymap.set("n", "<Space>ff", builtin.find_files, {})
 		vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 		vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
@@ -186,5 +195,6 @@ return {
 		telescope.load_extension("heading")
 		telescope.load_extension("quicknote")
 		telescope.load_extension("lazygit")
+		telescope.load_extension("lazy_plugins")
 	end,
 }
