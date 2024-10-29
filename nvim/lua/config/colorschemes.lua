@@ -133,6 +133,5 @@ require("bamboo").setup({
 })
 -- Default options
 -- For using default config leave this empty.
-
-vim.cmd([[colorscheme bamboo]])
+vim.cmd([[colorscheme vscode]])
 --zellner(white),wildcharm(black),sorbet,retrobox

@@ -35,7 +35,6 @@ return {
 	-- },
 	{
 		"echasnovski/mini.operators",
-		lazy = false,
 		event = { "BufReadPost", "BufNewFile" },
 		opts = {
 			replace = {

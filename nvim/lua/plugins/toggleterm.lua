@@ -1,5 +1,6 @@
 return {
 	"akinsho/toggleterm.nvim",
+	event = "VimEnter",
 	version = "*",
 	opts = function()
 		local map = vim.keymap.set

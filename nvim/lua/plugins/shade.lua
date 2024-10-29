@@ -1,5 +1,6 @@
 return {
 	"sunjon/shade.nvim",
+	event = "VeryLazy",
 	config = function()
 		require("shade").setup({
 			overlay_opacity = 50,
@@ -10,5 +11,6 @@ return {
 				toggle = "<Space>sh",
 			},
 		})
+		require("shade").toggle("off")
 	end,
 }

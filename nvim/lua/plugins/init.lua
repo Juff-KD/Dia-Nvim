@@ -2,28 +2,14 @@ return {
 	{ require("config.alpha") },
 	-- { "folke/neodev.nvim", enabled = false }, -- make sure to uninstall or disable neodev.nvim
 	{
-		"dstein64/vim-startuptime",
-		-- lazy-load on a command
-		cmd = "StartupTime",
-		-- init is called during startup. Configuration for vim plugins typically should be set in an init function
-		init = function()
-			vim.g.startuptime_tries = 10
-		end,
-	},
-
-	{
 		"zootedb0t/citruszest.nvim",
 		lazy = false,
 		priority = 1000,
-		dependencies = {
-			"sunjon/shade.nvim",
-			enabled = false,
-		},
 	},
 	{ "Everblush/nvim", name = "everblush", lazy = false, priority = 1000 },
 	{ "Mofiqul/vscode.nvim", lazy = false, priority = 1000 },
-	{ "olivercederborg/poimandres.nvim", lazy = false, priority = 1000 },
-	{ "ribru17/bamboo.nvim", lazy = false, priority = 1000 },
+	{ "olivercederborg/poimandres.nvim", lazy = "VeryLazy", priority = 1000 },
+	{ "ribru17/bamboo.nvim", lazy = "VeryLazy", priority = 1000 },
 
 	{
 		"altermo/ultimate-autopair.nvim",
@@ -79,7 +65,7 @@ return {
 	},
 	{
 		"gbprod/cutlass.nvim",
-		event = "BufReadPost",
+		-- event = "BufReadPost",
 		opts = {
 			cut_key = "x",
 			override_del = true,
@@ -132,7 +118,6 @@ return {
 	{
 		"karb94/neoscroll.nvim",
 		event = "BufRead",
-		-- lazy = false,
 		enabled = true,
 	},
 	{
@@ -154,8 +139,7 @@ return {
 	},
 	{
 		"joshuadanpeterson/typewriter",
-		event = "BufEnter",
-		-- lazy = false,
+		event = "VeryLazy",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 		},
@@ -183,6 +167,7 @@ return {
 	},
 	{
 		"HiPhish/rainbow-delimiters.nvim",
+		event = "BufRead",
 		config = function()
 			-- This module contains a number of default definitions
 			local rainbow_delimiters = require("rainbow-delimiters")

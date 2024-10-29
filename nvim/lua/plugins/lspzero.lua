@@ -1,7 +1,7 @@
 return {
 	"VonHeikemen/lsp-zero.nvim",
+	event = "VimEnter",
 	branch = "v3.x",
-	lazy = false,
 	dependencies = {
 		{
 			"neovim/nvim-lspconfig",
@@ -47,7 +47,6 @@ return {
 		"rafamadriz/friendly-snippets",
 		"neovim/nvim-lspconfig",
 	},
-	event = "VeryLazy",
 	config = function()
 		local lsp_zero = require("lsp-zero")
 		-- local lspconfig = require('lspconfig')

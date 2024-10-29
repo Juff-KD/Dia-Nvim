@@ -5,6 +5,7 @@ vim.g.maplocalleader = "\\"
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+vim.go.loadplugins = false
 -- LazyVim picker to use.
 -- Can be one of: telescope, fzf
 -- Leave it to "auto" to automatically use the picker
