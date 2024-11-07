@@ -1,6 +1,6 @@
 return {
 	"nvim-lualine/lualine.nvim",
-	event = "BufEnter",
+	-- event = "Enter",
 	dependencies = {
 		"nvim-tree/nvim-web-devicons", --opt = true }
 	},

@@ -77,35 +77,7 @@ return {
 			},
 		},
 	},
-	{
-		"ckolkey/ts-node-action",
-		dependencies = { "nvim-treesitter" },
-		opts = {},
-		config = function()
-			vim.keymap.set({ "n" }, "KK", require("ts-node-action").node_action, { desc = "Trigger Node Action" })
-		end,
-	},
 	{ "dsznajder/vscode-es7-javascript-react-snippets", run = "yarn install --frozen-lockfile && yarn compile" },
-	{
-		"kosayoda/nvim-lightbulb",
-		config = function()
-			vim.cmd([[ autocmd CursorHold,CursorHoldI * lua LightBulbFunction() ]])
-			LightBulbFunction = function()
-				require("nvim-lightbulb").update_lightbulb({
-					sign = {
-						enabled = true,
-						-- Priority of the gutter sign
-						priority = 10,
-					},
-					float = {
-						enabled = true,
-						-- Text to show in the popup float
-						text = "💡",
-					},
-				})
-			end
-		end,
-	},
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },

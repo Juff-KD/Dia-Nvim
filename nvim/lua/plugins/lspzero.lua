@@ -1,6 +1,7 @@
 return {
 	"VonHeikemen/lsp-zero.nvim",
-	event = "VimEnter",
+	lazy = false,
+	event = "VeryLazy",
 	branch = "v3.x",
 	dependencies = {
 		{

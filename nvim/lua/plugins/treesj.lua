@@ -1,6 +1,6 @@
 return {
 	"Wansmer/treesj",
-	keys = { "<space>j" },
+	keys = { "<space>m", "<space>j", "<space>s" },
 	dependencies = { "nvim-treesitter/nvim-treesitter" },
 	config = function()
 		local tsj = require("treesj")
@@ -31,10 +31,5 @@ return {
 			-- langs = {}, -- See the default presets in lua/treesj/langs
 		})
 		-- For default preset
-		vim.keymap.set("n", "<Space>j", require("treesj").toggle)
-		-- For extending default preset with `recursive = true`
-		vim.keymap.set("n", "<leader>jj", function()
-			require("treesj").toggle({ split = { recursive = true } })
-		end)
 	end,
 }
