@@ -1,8 +1,10 @@
+vim.g.mapleader = " " -- LazyVim auto format
+vim.g.maplocalleader = " "
+
 require("config.lazy")
 require("config.keymaps")
 require("config.options")
 require("config.colorschemes")
-
 
 vim.api.nvim_create_autocmd({ "VimLeavePre" }, {
 	callback = function()

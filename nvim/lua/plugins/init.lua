@@ -126,10 +126,11 @@ return {
 		opts = {},
 	},
 	{
-		"roodolv/markdown-toggle.nvim",
+		"jakewvincent/mkdnflow.nvim",
+		event = "VeryLazy",
 		config = function()
-			require("markdown-toggle").setup({
-				use_default_keymaps = true,
+			require("mkdnflow").setup({
+				-- Config goes here; leave blank for defaults
 			})
 		end,
 	},
