@@ -1,9 +1,11 @@
 vim.g.mapleader = " " -- LazyVim auto format
 vim.g.maplocalleader = " "
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 
 require("config.lazy")
-require("config.keymaps")
 require("config.options")
+require("config.keymaps")
 require("config.colorschemes")
 
 vim.api.nvim_create_autocmd({ "VimLeavePre" }, {

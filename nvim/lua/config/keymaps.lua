@@ -62,3 +62,51 @@ end)
 map("n", "<Space>kk", ":Telescope colorscheme <cr>", { silent = true, noremap = true })
 
 map({ "n", "i" }, "<Space>tw", "<cmd>TWToggle<cr>", opts)
+
+map(
+	"n",
+	"<Space>kr",
+	"<cmd>lua require('kulala').run()<cr>",
+	{ noremap = true, silent = true, desc = "Execute the request" }
+)
+
+map(
+	"n",
+	"[",
+	"<cmd>lua require('kulala').jump_prev()<cr>",
+	{ noremap = true, silent = true, desc = "Jump to the previous request" }
+)
+map(
+	"n",
+	"]",
+	"<cmd>lua require('kulala').jump_next()<cr>",
+	{ noremap = true, silent = true, desc = "Jump to the next request" }
+)
+
+map(
+	"n",
+	"<Space>koi",
+	"<cmd>lua require('kulala').inspect()<cr>",
+	{ noremap = true, silent = true, desc = "Inspect the current request" }
+)
+
+map(
+	"n",
+	"<Space>kt",
+	"<cmd>lua require('kulala').toggle_view()<cr>",
+	{ noremap = true, silent = true, desc = "Toggle between body and headers" }
+)
+
+map(
+	"n",
+	"<Space>kc",
+	"<cmd>lua require('kulala').copy()<cr>",
+	{ noremap = true, silent = true, desc = "Copy the current request as a curl command" }
+)
+
+map(
+	"n",
+	"<Sapce>ki",
+	"<cmd>lua require('kulala').from_curl()<cr>",
+	{ noremap = true, silent = true, desc = "Paste curl from clipboard as http request" }
+)
