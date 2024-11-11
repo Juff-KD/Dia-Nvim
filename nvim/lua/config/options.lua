@@ -1,5 +1,7 @@
 -- vim.g.lazygit_floating_window_scaling_factor = 0.6 -- scaling factor for floating window
 -- This file is automatically loaded by plugins.core
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 vim.go.loadplugins = false
 -- LazyVim picker to use.
