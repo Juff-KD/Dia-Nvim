@@ -1,5 +1,5 @@
 return {
-	{ require("config.alpha") },
+	-- { require("config.alpha") },
 	-- { "folke/neodev.nvim", enabled = false }, -- make sure to uninstall or disable neodev.nvim
 	{
 		"zootedb0t/citruszest.nvim",

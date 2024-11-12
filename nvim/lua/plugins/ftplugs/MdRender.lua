@@ -3,6 +3,7 @@ return {
 	event = "VeryLazy",
 	name = "render-markdown", -- Only needed if you have another plugin named markdown.nvim
 	dependencies = { "nvim-treesitter/nvim-treesitter" },
+	ft = { "markdown" },
 	config = function()
 		require("render-markdown").setup({
 			-- Configure whether Markdown should be rendered by default or not

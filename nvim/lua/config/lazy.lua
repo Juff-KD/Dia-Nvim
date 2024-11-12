@@ -25,7 +25,10 @@ require("lazy").setup({
 		event = "VeryLazy",
 	},
 	spec = {
+		{ import = "config.alpha" },
 		{ import = "plugins" },
+		{ import = "plugins.coolplugs" },
+		{ import = "plugins.ftplugs" },
 	},
 
 	checker = { enabled = true },

@@ -2,7 +2,7 @@
 return {
 	"sontungexpt/sttusline",
 	branch = "table_version",
-	pin = true,
+	-- pin = true,
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 	},
