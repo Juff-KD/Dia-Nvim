@@ -17,5 +17,12 @@ You can what I designed like I prefer the most, here.😄😁
 
 >   Sorry for the lack of comments and insufficient documentation for now.😔
 
+----
+## But..😃
+### B4 u go...😁
+### Check Screenshots Here!!😉😑
+https://github.com/Juff-KD/Dia-Nvim/blob/883cbeb45ac98196e4f5bb9d251afda41d858bcc/Ss/for%20gh.jpg
+
+
 ## Thank You All Contributors and Neovim
 - Happy Coding! 🎉 _with Dia-Nvim_ 💕
