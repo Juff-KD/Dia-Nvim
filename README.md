@@ -19,7 +19,7 @@ You can what I designed like I prefer the most, here.😄😁
 
 ----
 ### But..😃  _B4 u go_...😁
-### Check Screenshots Here!!😉😑
+- Check Screenshots **Here!!**😉😑
 ![for gh](https://github.com/user-attachments/assets/2179ca89-f866-4cab-9415-e2c0f83f1201)
 
 ![for gh4](https://github.com/user-attachments/assets/f48fe99c-5ca6-4132-8aee-477238e54cf9)
@@ -31,5 +31,5 @@ You can what I designed like I prefer the most, here.😄😁
 ![for gh3](https://github.com/user-attachments/assets/7d8c6220-bbc8-4d1f-b90f-eb858f44b0e1)
 
 ----
-## Thank You All Contributors and Neovim
+## Thank You All and Thanks Neovim
 - Happy Coding! 🎉 _with Dia-Nvim_ 💕
