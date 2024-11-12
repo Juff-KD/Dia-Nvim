@@ -15,11 +15,11 @@ You can what I designed like I prefer the most, here.😄😁
   - So, you can install packages when `winget` get errors sometimes.
 - Also, For `Codeium Ai` plugin, you need to download [`Languge Server for Windows`](https://github.com/vadimcn/vscode-langservers-extracted/releases)
 
->   Sorry for the lack of comments and insufficient documentation for now.😔
+>   **Sorry for the lack of comments and insufficient documentation for now.** 😔
 
 ----
 ### But..😃  _B4 u go_...😁
-- Check Screenshots **Here!!**😉😑
+- Check Screenshots **Here!!** 😉😑
 ![for gh](https://github.com/user-attachments/assets/2179ca89-f866-4cab-9415-e2c0f83f1201)
 
 ![for gh4](https://github.com/user-attachments/assets/f48fe99c-5ca6-4132-8aee-477238e54cf9)
