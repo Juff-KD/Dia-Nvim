@@ -18,7 +18,7 @@ You can what I designed like I prefer the most, here.😄😁
 >   Sorry for the lack of comments and insufficient documentation for now.😔
 
 ----
-## But..😃 ### B4 u go...😁
+### But..😃  _B4 u go_...😁
 ### Check Screenshots Here!!😉😑
 ![for gh](https://github.com/user-attachments/assets/2179ca89-f866-4cab-9415-e2c0f83f1201)
 
