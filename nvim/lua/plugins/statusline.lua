@@ -2,7 +2,7 @@
 return {
 	"sontungexpt/sttusline",
 	branch = "table_version",
-	-- pin = true,
+	pin = true,
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 	},
@@ -21,7 +21,7 @@ return {
 
 			-- the colors of statusline will be set follow the colors of the active buffer
 			-- statusline_color = "#fdff00",
-			statusline_color = "", --"StatusLine",
+			statusline_color = "NONE", --"StatusLine",
 			disabled = {
 				filetypes = {
 					-- "NvimTree",
