@@ -1,8 +1,8 @@
-return-- Lazy
+return -- Lazy
 {
-  'piersolenski/telescope-import.nvim',
-  dependencies = 'nvim-telescope/telescope.nvim',
-  config = function()
-    require("telescope").load_extension("import")
-  end
+	"piersolenski/telescope-import.nvim",
+	dependencies = "nvim-telescope/telescope.nvim",
+	config = function()
+		require("telescope").load_extension("import")
+	end,
 }

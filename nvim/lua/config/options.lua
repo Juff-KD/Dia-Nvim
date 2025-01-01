@@ -1,5 +1,6 @@
 -- vim.g.lazygit_floating_window_scaling_factor = 0.6 -- scaling factor for floating window
 -- This file is automatically loaded by plugins.core
+
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
@@ -16,7 +17,6 @@ vim.go.loadplugins = false
 -- * a pattern or array of patterns like `.git` or `lua`.
 -- * a function with signature `function(buf) -> string|string[]`
 vim.g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
-
 -- LazyVim automatically configures lazygit:
 --  * theme, based on the active colorscheme.
 --  * editorPreset to nvim-remote
@@ -111,6 +111,5 @@ if vim.fn.has("nvim-0.10") == 1 then
 else
 	opt.foldmethod = "indent"
 end
-
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0

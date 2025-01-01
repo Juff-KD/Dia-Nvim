@@ -5,15 +5,6 @@ return {
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 		{
-			"s1n7ax/nvim-window-picker",
-			name = "window-picker",
-			version = "2.*",
-			config = function()
-				require("window-picker").setup()
-			end,
-		},
-
-		{
 			"b0o/nvim-tree-preview.lua",
 			dependencies = { "nvim-lua/plenary.nvim" },
 		},
@@ -71,20 +62,7 @@ return {
 			git = {
 				ignore = false,
 			},
-			actions = {
-				open_file = {
-					window_picker = {
-						enable = true,
-						picker = function()
-							return require("window-picker").pick_window({
-								filter_rules = {
-									file_path_contains = { "nvim-tree-preview://" },
-								},
-							})
-						end,
-					},
-				},
-			},
+			actions = {},
 			renderer = {
 				icons = {
 					show = {

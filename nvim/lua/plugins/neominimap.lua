@@ -3,7 +3,7 @@ return {
 	"Isrothy/neominimap.nvim",
 	version = "v3.*.*",
 	enabled = true,
-	lazy = false, -- NOTE: NO NEED to Lazy load
+	event = BufRead, --false, -- NOTE: NO NEED to Lazy load
 	-- Optional
 	keys = {
 		-- Global Minimap Controls

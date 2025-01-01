@@ -31,7 +31,7 @@ require("lazy").setup({
 		{ import = "plugins.ftplugs" },
 	},
 
-	checker = { enabled = true },
+	checker = { enabled = false },
 })
 
 -- Make sure to setup `mapleader` and `maplocalleader` before

@@ -22,6 +22,7 @@ return {
 			})
 		end,
 	},
+
 	-- { 'echasnovski/mini.notify', version = false,
 	--    config = function()
 	--   local win_config = function()

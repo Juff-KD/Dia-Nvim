@@ -1,6 +1,12 @@
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
+vim.keymap.set("i", "<C-K>", 'copilot#Accept("\\<CR>")', {
+	expr = true,
+	replace_keycodes = false,
+})
+vim.g.copilot_no_tab_map = true
+
 map("n", "<Space>bh", ":BufferHistory reopen<CR>", { silent = true })
 map({ "i", "x", "n", "s" }, "<Space>w", "<cmd>w<cr>", { desc = "Save File" })
 map("n", "<A-q>", "<cmd>q<cr>", opts) -- Quit all windows (silent)

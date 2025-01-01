@@ -1,12 +1,9 @@
 return {
 	-- { require("config.alpha") },
 	-- { "folke/neodev.nvim", enabled = false }, -- make sure to uninstall or disable neodev.nvim
-	{
-		"zootedb0t/citruszest.nvim",
-		lazy = false,
-		priority = 1000,
-	},
-	{ "Everblush/nvim", name = "everblush", lazy = false, priority = 1000 },
+	{ "github/copilot.vim", event = "BufEnter" },
+	{ "zootedb0t/citruszest.nvim", lazy = true, priority = 1000 },
+	{ "EdenEast/nightfox.nvim", lazy = false, priority = 1000 }, -- lazy
 	{ "Mofiqul/vscode.nvim", lazy = false, priority = 1000 },
 	{ "olivercederborg/poimandres.nvim", lazy = "VeryLazy", priority = 1000 },
 	{ "ribru17/bamboo.nvim", lazy = "VeryLazy", priority = 1000 },

@@ -1,6 +1,6 @@
 return {
 	"stevearc/aerial.nvim",
-	event = "BufRead",
+	event = "BufReadPost",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",
 		"nvim-tree/nvim-web-devicons",
@@ -34,7 +34,7 @@ return {
 			end,
 		})
 		-- You probably also want to set a keymap to toggle aerial
-		vim.keymap.set("n", "<Space>a", "<cmd>AerialToggle!<CR>")
+		vim.keymap.set("n", "<A-a>", "<cmd>AerialToggle!<CR>")
 	end,
 	-- Optional dependencies
 }
