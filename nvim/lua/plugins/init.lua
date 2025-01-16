@@ -7,10 +7,55 @@ return {
 	{ "Mofiqul/vscode.nvim", lazy = false, priority = 1000 },
 	{ "olivercederborg/poimandres.nvim", lazy = "VeryLazy", priority = 1000 },
 	{ "ribru17/bamboo.nvim", lazy = "VeryLazy", priority = 1000 },
-
+	{
+		"nvim-neorg/neorg",
+		lazy = true, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+		version = "*", -- Pin Neorg to the latest stable release
+		opts = {
+			load = {
+				["core.integrations.telescope"] = {
+					config = {
+						insert_file_link = {
+							-- Whether to show the title preview in telescope. Affects performance with a large
+							-- number of files.
+							show_title_preview = true,
+						},
+					},
+				},
+			},
+		},
+		config = true,
+		keys = { { "<leader>fn", "<Plug>(neorg.telescope.find_norg_files)", desc = "Open Neorg" } },
+		dependencies = { { "nvim-lua/plenary.nvim" }, { "nvim-neorg/neorg-telescope" } },
+	},
+	{
+		"wurli/visimatch.nvim",
+		event = "VeryLazy",
+		opts = {
+			hl_group = "Search",
+			-- The minimum number of selected characters required to trigger highlighting
+			chars_lower_limit = 5,
+			-- The maximum number of selected lines to trigger highlighting for
+			lines_upper_limit = 30,
+			-- By default, visimatch will highlight text even if it doesn't have exactly
+			-- the same spacing as the selected region. You can set this to `true` if
+			-- you're not a fan of this behaviour :)
+			strict_spacing = false,
+			-- Visible buffers which should be highlighted. Valid options:
+			-- * `"filetype"` (the default): highlight buffers with the same filetype
+			-- * `"current"`: highlight matches in the current buffer only
+			-- * `"all"`: highlight matches in all visible buffers
+			buffers = "filetype",
+			-- Case-(in)nsitivity for matches. Valid options:
+			-- * `true`: matches will never be case-sensitive
+			-- * `false`/`{}`: matches will always be case-sensitive
+			-- * a table of filetypes to use use case-insensitive matching for.
+			case_insensitive = { "markdown", "text", "help" },
+		},
+	},
 	{
 		"altermo/ultimate-autopair.nvim",
-		event = { "InsertEnter", "CmdlineEnter" },
+		event = { "BufReadPost", "InsertEnter", "CmdlineEnter" },
 		branch = "v0.6", --recommended as each new version will have breaking changes
 		opts = {
 			--Config goes here
@@ -35,7 +80,7 @@ return {
 	},
 	{
 		"NvChad/nvim-colorizer.lua",
-		lazy = true,
+		event = "BufReadPost",
 		config = function()
 			require("colorizer").setup({
 				filetypes = { "*" },
@@ -45,7 +90,7 @@ return {
 	},
 	{
 		"uga-rosa/ccc.nvim",
-		event = "FileType",
+		event = { "BufReadPost", "FileType" },
 		keys = { { "<Leader>cp", "<cmd>CccPick<CR>", desc = "Color-picker" } },
 		opts = {
 			highlighter = { auto_enable = true, lsp = true, excludes = { "lazy", "mason", "help", "neo-tree" } },
@@ -77,11 +122,27 @@ return {
 	{ "dsznajder/vscode-es7-javascript-react-snippets", run = "yarn install --frozen-lockfile && yarn compile" },
 	{
 		"folke/todo-comments.nvim",
+		event = "BufRead",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = {
 			-- your configuration comes here
 			-- or leave it empty to use the default settings
 			-- refer to the configuration section below
+		},
+	},
+	{
+		"Dan7h3x/LazyDo",
+		branch = "main",
+		keys = { -- recommended keymap for easy toggle LazyDo in normal and insert modes (arbitrary)
+			{
+				"<F2>",
+				"<ESC><CMD>LazyDoToggle<CR>",
+				mode = { "n", "i" },
+			},
+		},
+		event = "VeryLazy",
+		opts = {
+			-- your config here
 		},
 	},
 	{
@@ -108,7 +169,7 @@ return {
 	},
 	{
 		"joshuadanpeterson/typewriter",
-		event = "VeryLazy",
+		event = "BufReadPost",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 		},
@@ -124,7 +185,8 @@ return {
 	},
 	{
 		"jakewvincent/mkdnflow.nvim",
-		event = "VeryLazy",
+		event = "BufReadPost",
+		ft = "markdown",
 		config = function()
 			require("mkdnflow").setup({
 				-- Config goes here; leave blank for defaults

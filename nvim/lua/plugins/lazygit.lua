@@ -9,6 +9,7 @@ return {
 		"LazyGitFilterCurrentFile",
 	},
 	-- optional for floating window border decoration
+	event = "BufReadPost",
 	dependencies = {
 		"nvim-telescope/telescope.nvim",
 		"nvim-lua/plenary.nvim",

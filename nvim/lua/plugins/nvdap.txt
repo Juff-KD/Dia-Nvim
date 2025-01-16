@@ -1,0 +1,119 @@
+return {
+	"mfussenegger/nvim-dap",
+	event = "VeryLazy",
+	config = function()
+		local dap, dapui = require("dap"), require("dapui")
+		--dapui
+		dapui.setup(dapui.opts)
+		dap.listeners.before.attach.dapui_config = function()
+			dapui.open()
+		end
+		dap.listeners.before.launch.dapui_config = function()
+			dapui.open()
+		end
+		dap.listeners.before.event_terminated.dapui_config = function()
+			dapui.close()
+		end
+		dap.listeners.before.event_exited.dapui_config = function()
+			dapui.close()
+		end
+		local dap_breakpoint = {
+			error = {
+				text = "🟥",
+				texthl = "LspDiagnosticsSignError",
+				linehl = "",
+				numhl = "",
+			},
+			rejected = {
+				text = "",
+				texthl = "LspDiagnosticsSignHint",
+				linehl = "",
+				numhl = "",
+			},
+			stopped = {
+				text = "⭐️",
+				texthl = "LspDiagnosticsSignInformation",
+				linehl = "DiagnosticUnderlineInfo",
+				numhl = "LspDiagnosticsSignInformation",
+			},
+		}
+
+		vim.fn.sign_define("DapBreakpoint", dap_breakpoint.error)
+		vim.fn.sign_define("DapStopped", dap_breakpoint.stopped)
+		vim.fn.sign_define("DapBreakpointRejected", dap_breakpoint.rejected)
+
+		--pythondap
+		local path = require("mason-registry").get_package("debugpy"):get_install_path()
+		require("dap-python").setup(path .. "/venv/Scripts/python")
+
+		--go delve
+
+		-- local godap_path = require("mason-registry").get_package("go-debug-adapter"):get_install_path()
+
+		-- local dlv_path = require("mason-registry").get_package("delve"):get_install_path()
+		-- dap.adapters.go = {
+		-- 	type = "executable",
+		-- 	command = "node",
+		-- 	-- args = { os.getenv("HOME") .. "/dev/golang/vscode-go/extension/dist/debugAdapter.js" },
+		-- 	args = { godap_path .. "/extension/dist/debugAdapter.js" },
+		-- }
+		-- dap.configurations.go = {
+		-- 	{
+		-- 		type = "go",
+		-- 		name = "Debug",
+		-- 		request = "launch",
+		-- 		showLog = false,
+		-- 		program = "${file}",
+		-- 		dlvToolPath = vim.fn.exepath("dlv"), -- Adjust to where delve is installed
+		-- 	},
+		-- }
+		--js-debug
+		-- dap.adapters["pwa-node"] = {
+		-- 	type = "server",
+		-- 	host = "localhost",
+		-- 	port = 9229,
+		-- 	executable = {
+		-- 		command = "node",
+		-- 		-- 💀 Make sure to update this path to point to your installation
+		-- 		args = { vim.fn.stdpath("data") .. "/lazy/vscode-js-debug/src/dapDebugServer.ts", "${port}" },
+		-- 	},
+		-- }
+		--
+		-- dap.configurations.javascript = {
+		-- 	{
+		-- 		type = "pwa-node",
+		-- 		request = "launch",
+		-- 		name = "Launch file",
+		-- 		program = "${file}",
+		-- 		cwd = "${workspaceFolder}",
+		-- 	},
+		-- }
+	end,
+	dependencies = {
+		{ "mfussenegger/nvim-dap-python" },
+		{ "leoluz/nvim-dap-go", config = true },
+		{
+			"jay-babu/mason-nvim-dap.nvim",
+			cmd = { "DapInstall", "DapUninstall" },
+			config = function()
+				require("mason-nvim-dap").setup()
+			end,
+		},
+		{
+			"rcarriga/nvim-dap-ui",
+			opts = {},
+			config = function()
+				require("dapui").setup()
+			end,
+		},
+		{
+			"theHamsta/nvim-dap-virtual-text",
+			config = function()
+				require("nvim-dap-virtual-text").setup()
+			end,
+		},
+		{
+			"nvim-neotest/nvim-nio",
+		},
+	},
+}

@@ -14,74 +14,9 @@ return {
 				{ "<Space>tp", "<Cmd>Telescope lazy_plugins<CR>", desc = "Telescope: Plugins configurations" },
 			},
 		},
-		"crispgm/telescope-heading.nvim",
 		{
-			"RutaTang/quicknote.nvim",
-			config = function()
-				-- you must call setup to let quicknote.nvim works correctly
-				require("quicknote").setup({
-					mode = "portable", -- "portable" | "resident", default to "portable"
-					sign = "N", -- This is used for the signs on the left side (refer to ShowNoteSigns() api).
-					-- You can change it to whatever you want (eg. some nerd fonts icon), 'N' is default
-					filetype = "md",
-					git_branch_recognizable = true,
-				})
-				vim.api.nvim_set_keymap(
-					"n",
-					"<Space>qnc",
-					"<cmd>lua require('quicknote').NewNoteAtCurrentLine()<cr>",
-					{ noremap = true }
-				)
-				vim.api.nvim_set_keymap(
-					"n",
-					"<Space>qns",
-					"<cmd>lua require('quicknote').ToggleNoteSigns()<cr>",
-					{ noremap = true }
-				)
-				vim.api.nvim_set_keymap(
-					"n",
-					"<Space>qno",
-					"<cmd>lua require('quicknote').OpenNoteAtCurrentLine()<cr>",
-					{ noremap = true }
-				)
-				vim.api.nvim_set_keymap(
-					"n",
-					"<Space>qnw",
-					"<cmd>lua require('quicknote').NewNoteAtCWD()<cr>",
-					{ noremap = true }
-				)
-				vim.api.nvim_set_keymap(
-					"n",
-					"<Space>qdw",
-					"<cmd>lua require('quicknote').DeleteNoteAtCWD()<cr>",
-					{ noremap = true }
-				)
-				vim.api.nvim_set_keymap(
-					"n",
-					"<Space>qdc",
-					"<cmd>lua require('quicknote').DeleteNoteAtCurrentLine()<cr>",
-					{ noremap = true }
-				)
-				vim.api.nvim_set_keymap(
-					"n",
-					"<Space>qnl",
-					"<cmd>lua require('quicknote').ListNotesForCurrentBuffer()<cr>",
-					{ noremap = true }
-				)
-				vim.api.nvim_set_keymap(
-					"n",
-					"<Space>qj",
-					"<cmd>lua require('quicknote').JumpToNextNote()<cr>",
-					{ noremap = true }
-				)
-				vim.api.nvim_set_keymap(
-					"n",
-					"<Space>qk",
-					"<cmd>lua require('quicknote').JumpToPreviousNote()<cr>",
-					{ noremap = true }
-				)
-			end,
-			dependencies = { "nvim-lua/plenary.nvim" },
+			"crispgm/telescope-heading.nvim",
+			keys = { "<Space>th", "<Cmd>Telescope heading<CR>", desc = "Telescope heading" },
 		},
 	},
 	config = function()
@@ -156,9 +91,6 @@ return {
 					},
 				},
 				extensions = {
-					quicknote = {
-						defaultScope = "CWD",
-					},
 					heading = {
 						treesitter = true,
 						picker_opts = {
@@ -194,7 +126,6 @@ return {
 		vim.keymap.set("n", "<space>fz", "<cmd>FzfLua<Cr>", { noremap = true })
 
 		telescope.load_extension("heading")
-		telescope.load_extension("quicknote")
 		telescope.load_extension("lazygit")
 		telescope.load_extension("lazy_plugins")
 	end,

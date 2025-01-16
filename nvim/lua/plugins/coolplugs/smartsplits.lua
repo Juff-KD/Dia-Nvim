@@ -1,6 +1,6 @@
 return {
 	"mrjones2014/smart-splits.nvim",
-	event = "VeryLazy",
+	event = { "BufReadPost" },
 	config = function()
 		local ss = require("smart-splits")
 
