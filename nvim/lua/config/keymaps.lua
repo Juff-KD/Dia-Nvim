@@ -7,6 +7,8 @@ vim.keymap.set("i", "<C-K>", 'copilot#Accept("\\<CR>")', {
 })
 vim.g.copilot_no_tab_map = true
 
+map("n", "<Space>lz", "<cmd>Lazy<cr>", opts)
+map("n", "<Space>bk", "<cmd>BinaryClock toggle<cr>", opts)
 map("n", "<Space>bh", ":BufferHistory reopen<CR>", { silent = true })
 map({ "i", "x", "n", "s" }, "<Space>w", "<cmd>w<cr>", { desc = "Save File" })
 map("n", "<A-q>", "<cmd>q<cr>", opts) -- Quit all windows (silent)

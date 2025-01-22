@@ -5,11 +5,6 @@ return {
 		event = "VeryLazy",
 		branch = "v4.x",
 		dependencies = {
-			"hrsh7th/cmp-cmdline",
-			"hrsh7th/cmp-emoji",
-			"L3MON4D3/LuaSnip",
-			"saadparwaiz1/cmp_luasnip",
-			"rafamadriz/friendly-snippets",
 			"williamboman/mason-lspconfig.nvim",
 		},
 	},
@@ -27,17 +22,30 @@ return {
 			"onsails/lspkind-nvim",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
+			"hrsh7th/cmp-emoji",
+			"saadparwaiz1/cmp_luasnip",
+			{ "L3MON4D3/LuaSnip", dependencies = "rafamadriz/friendly-snippets" },
 		},
 		config = function()
 			local cmp = require("cmp")
 			local lspkind = require("lspkind")
 			local luasnip = require("luasnip")
+			require("luasnip.loaders.from_vscode").lazy_load()
 			cmp.setup({
 				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
-					{ name = "codeium" },
 					{ name = "luasnip", keyword_length = 2 },
 					{ name = "friendly-snippets" },
+					{
+						name = "nvim_lsp",
+						option = {
+							markdown_oxide = {
+								keyword_pattern = [[\(\k\| \|\/\|#\)\+]],
+							},
+						},
+					},
+					{ name = "codeium" },
+					{ name = "ecolog" },
 				}, { { name = "buffer" } }),
 				mapping = cmp.mapping.preset.insert({
 					["<C-Space>"] = cmp.mapping.complete(),

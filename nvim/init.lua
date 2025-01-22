@@ -10,7 +10,6 @@ vim.api.nvim_create_autocmd({ "VimLeavePre" }, {
 		end
 	end,
 })
-
 vim.api.nvim_create_autocmd("BufEnter", {
 	desc = "Pin the buffer to any window that is fixed width or height",
 	callback = function() --args

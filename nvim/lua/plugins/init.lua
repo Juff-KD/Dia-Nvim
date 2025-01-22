@@ -7,9 +7,11 @@ return {
 	{ "Mofiqul/vscode.nvim", lazy = false, priority = 1000 },
 	{ "olivercederborg/poimandres.nvim", lazy = "VeryLazy", priority = 1000 },
 	{ "ribru17/bamboo.nvim", lazy = "VeryLazy", priority = 1000 },
+	-- plugins specs..
 	{
 		"nvim-neorg/neorg",
-		lazy = true, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+		-- lazy = true, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+		event = "BufReadPost",
 		version = "*", -- Pin Neorg to the latest stable release
 		opts = {
 			load = {
@@ -54,20 +56,19 @@ return {
 		},
 	},
 	{
-		"altermo/ultimate-autopair.nvim",
-		event = { "BufReadPost", "InsertEnter", "CmdlineEnter" },
-		branch = "v0.6", --recommended as each new version will have breaking changes
-		opts = {
-			--Config goes here
-		},
-	},
-	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		config = true,
 		-- use opts = {} for passing setup options
 		-- this is equalent to setup({}) function
 	},
+	-- sm plugins..
+	{ "elliotxx/copypath.nvim", config = true },
+	{
+		"4DRIAN0RTIZ/binaryclock.nvim",
+		event = "VeryLazy",
+	},
+	{ "axieax/urlview.nvim", event = "VeryLazy", opts = { default_picker = "telescope" } },
 	{
 		"kylechui/nvim-surround",
 		version = "*", -- Use for stability; omit to "use" `main` branch for the latest featuresk
@@ -77,6 +78,14 @@ return {
 				-- Configuration here, or leave empty to use defaults
 			})
 		end,
+	},
+	{
+		"folke/twilight.nvim",
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		},
 	},
 	{
 		"NvChad/nvim-colorizer.lua",
@@ -90,7 +99,8 @@ return {
 	},
 	{
 		"uga-rosa/ccc.nvim",
-		event = { "BufReadPost", "FileType" },
+		lazy = true,
+		event = { "BufReadPost" }, --, "FileType"
 		keys = { { "<Leader>cp", "<cmd>CccPick<CR>", desc = "Color-picker" } },
 		opts = {
 			highlighter = { auto_enable = true, lsp = true, excludes = { "lazy", "mason", "help", "neo-tree" } },
@@ -122,7 +132,7 @@ return {
 	{ "dsznajder/vscode-es7-javascript-react-snippets", run = "yarn install --frozen-lockfile && yarn compile" },
 	{
 		"folke/todo-comments.nvim",
-		event = "BufRead",
+		event = "BufReadPost",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = {
 			-- your configuration comes here
@@ -147,7 +157,7 @@ return {
 	},
 	{
 		"karb94/neoscroll.nvim",
-		event = "BufRead",
+		event = "BufReadPost",
 		enabled = true,
 	},
 	{
@@ -169,7 +179,7 @@ return {
 	},
 	{
 		"joshuadanpeterson/typewriter",
-		event = "BufReadPost",
+		lazy = true,
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 		},
@@ -185,7 +195,7 @@ return {
 	},
 	{
 		"jakewvincent/mkdnflow.nvim",
-		event = "BufReadPost",
+		lazy = true,
 		ft = "markdown",
 		config = function()
 			require("mkdnflow").setup({
