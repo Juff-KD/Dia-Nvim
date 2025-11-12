@@ -1,8 +1,8 @@
 # Dia-Nvim
 This is my Neovim configuration.
 It is based on [LazyVim](https://github.com/LazyVim/LazyVim).
-And Thanks to ADICS, KickStart and Others Plugin & Config Contributors,
-You can what I designed like I prefer the most, here.😄😁
+And Thanks to ADICS, KickStart and Others Plugin & Config Contributors.
+because of them, I designed like I prefer the most, here.😄😁
 
 ## Notice!!
 - I am just a newbie and I am not responsible for any problems.
